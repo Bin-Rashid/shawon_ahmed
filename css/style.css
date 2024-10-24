@@ -67,15 +67,15 @@ font-family: 'Raleway', sans-serif;
     width: 100%;
     z-index: 999999;
 }
-.navbar .navbar-brand{
+.navbar .navbar-brand {
     font-family: 'Covered By Your Grace', cursive;
     font-size: 30px;
     color: #fff;
 }
-.navbar .navbar-brand span{
+.navbar .navbar-brand span {
     color: var(--main-color);
 }
-.navbar .navbar-nav .nav-item .nav-link{
+.navbar .navbar-nav .nav-item .nav-link {
     display: inline-block;
     color: #fff;
     font-family: 'Raleway', sans-serif;
@@ -85,11 +85,11 @@ font-family: 'Raleway', sans-serif;
     position: relative;
     padding-bottom: 0;
 }
-.navbar .navbar-nav .nav-item .nav-link.active{
+.navbar .navbar-nav .nav-item .nav-link.active {
     color: var(--main-color);
     font-weight: 700;
 }
-.navbar .navbar-nav .nav-item .nav-link::after{
+.navbar .navbar-nav .nav-item .nav-link::after {
     position: absolute;
     content: '';
     left: 35px;
@@ -98,17 +98,108 @@ font-family: 'Raleway', sans-serif;
     height: 3px;
     background: var(--main-color);
     transition: all linear .4s;
-    --webkit-transition: all linear .4s;
-    --moz-transition: all linear .4s;
-    --ms-transition: all linear .4s;
-    --o-transition: all linear .4s;
 }
-.navbar .nav-item .nav-link:hover::after{
-     width: 70%;
+.navbar .nav-item .nav-link:hover::after {
+    width: 70%;
 }
-.bg{
+.bg {
     background: rgba(33, 35, 39, .9);
 }
+
+/* First-level dropdown on hover */
+.navbar .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Initially hide all dropdown menus */
+.navbar .dropdown-menu {
+    background-color: var(--main-color);
+    border-radius: 15px;
+    margin-top: 0.5rem;
+    position: absolute;
+    display: block; /* Display block for layout */
+    opacity: 0; /* Start invisible */
+    visibility: hidden; /* Initially hidden */
+    z-index: 999;
+    border: 1px dashed #E5BA73;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* First-level dropdown items */
+.navbar .dropdown-menu li {
+    border-bottom: 1px dashed #E5BA73;
+    margin-bottom: 12px;
+}
+.navbar .dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.navbar .dropdown-item {
+    color: #fff;
+    padding: 8px 20px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    text-align: left;
+    display: inline-block;
+}
+
+/* Nested dropdown styles */
+.navbar .dropdown-menu .dropdown-menu-nested {
+    display: none; /* Hide nested dropdowns by default */
+    position: absolute;
+    top: 0; /* Align with parent */
+    left: 100%; /* Position to the right of parent */
+    margin-left: 3px; /* Remove space between parent and nested */
+    padding-left: 0;
+    background-color: var(--main-color);
+    border-radius: 15px;
+    border: 1px dashed #E5BA73;
+    opacity: 0; /* Start invisible */
+    visibility: hidden; /* Initially hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.navbar .dropdown-menu .dropdown-menu-nested .dropdown-link-nested {
+    display: inline-block;
+    color: #e7e7e7;
+}
+.navbar .dropdown-menu .dropdown-menu-nested .dropdown-item-nested {
+    border-bottom: 1px dashed #E5BA73;
+    margin-bottom: 12px;
+    padding: 8px 20px; /* Ensure consistent padding */
+}
+.navbar .dropdown-menu .dropdown-menu-nested .dropdown-item-nested:last-child {
+    border-bottom: none;
+}
+
+/* Ensuring every nested dropdown works the same, for any depth */
+.navbar .dropdown-menu .dropdown-item.dropdown:hover > .dropdown-menu-nested {
+    display: block; /* Show nested dropdown on hover */
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Arrow indicator for items that have nested dropdowns */
+.navbar .dropdown-item.dropdown > a::after {
+    content: '\f0da'; /* FontAwesome arrow (right) */
+    font-family: 'FontAwesome';
+    margin-left: 10px;
+}
+
+/* Extra styles for deeply nested dropdowns */
+.navbar .dropdown-menu .dropdown-menu-nested .dropdown-item {
+    padding-left: 0; /* Remove extra indent for nested items */
+}
+
+/* Hover effect for dropdown items */
+.navbar .dropdown-item:hover {
+    color: #000; /* Change text color on hover */
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly darker hover effect */
+}
+
 /* nav css end */
 
 /* banner section start */
